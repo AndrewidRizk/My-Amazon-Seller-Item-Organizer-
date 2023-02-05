@@ -157,7 +157,7 @@ frame2.pack()
 entry = tk.Entry(frame2, width=90)
 entry.pack(side='left')
 
-add_item_button = tk.Button(frame2, text="Enter the name of the seller", command=lambda: show_specific_database(entry.get()))
+add_item_button = tk.Button(frame2, text="Show seller Itmes", command=lambda: show_specific_database(entry.get()))
 add_item_button.pack(side='left', anchor='center')
 
 frame1 = tk.Frame(root)
@@ -171,7 +171,7 @@ frame4 = tk.Frame(root)
 frame4.pack()
 
 text_area = tk.Text(frame1, height=100, width=50)
-show_database_button = tk.Button(frame4, text="Show Database", command=show_add_screen)
+show_database_button = tk.Button(frame4, text="Add item", command=show_add_screen)
 show_database_button.pack(side='right', padx=20)
 
 

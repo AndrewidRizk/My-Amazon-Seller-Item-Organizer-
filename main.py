@@ -171,7 +171,7 @@ frame4 = tk.Frame(root)
 frame4.pack()
 
 text_area = tk.Text(frame1, height=100, width=50)
-show_database_button = tk.Button(frame4, text="Show Database", command=show_database)
+show_database_button = tk.Button(frame4, text="Show Database", command=show_add_screen)
 show_database_button.pack(side='right', padx=20)
 
 

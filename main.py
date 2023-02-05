@@ -1,13 +1,14 @@
 import tkinter as tk
 from tkinter import ttk
 import mysql.connector
+from PIL import Image, ImageTk
 
 def show_database():
     root = tk.Tk()
     root.title("Table")
     tree = ttk.Treeview(root)
     
-    tree["columns"]=("1","2","3", "4", "5", "6", "7", "8", "9", "10")
+    tree["columns"]=("1","2","3", "4", "5", "6", "7", "8")
     tree.column("1", width=70)
     tree.column("2", width=700)
     tree.column("3", width=60)
@@ -16,18 +17,14 @@ def show_database():
     tree.column("6", width=70)
     tree.column("7", width=70)
     tree.column("8", width=100)
-    tree.column("9", width=150)
-    tree.column("10", width=150)
     tree.heading("1", text="seller")
     tree.heading("2", text="items")
     tree.heading("3", text="quantity")
     tree.heading("4", text="bought")
     tree.heading("5", text="CAD")
-    tree.heading("6", text="(MXN$)")
-    tree.heading("7", text="USD")
-    tree.heading("8", text="rank")
-    tree.heading("9", text="ASIN")
-    tree.heading("10", text="UPS")
+    tree.heading("6", text="rank")
+    tree.heading("7", text="ASIN")
+    tree.heading("8", text="UPS")
     tree.pack_propagate(0)
     
     cnx = mysql.connector.connect(
@@ -38,7 +35,7 @@ def show_database():
         )
     # Retrieve data from the table
     cursor = cnx.cursor()
-    query = "SELECT seller, item, quantity, priceboughtCAD, pricesellingCAD, pricesellingMXN, pricesellingUSD, Ran, ASIN, UPC FROM seller"
+    query = "SELECT seller, item, quantity, priceboughtCAD, pricesellingCAD, Ran, ASIN, UPC FROM seller"
 
 
 
@@ -55,7 +52,7 @@ def show_specific_database(Name):
     root.title("Table")
     tree = ttk.Treeview(root)
 
-    tree["columns"]=("1","2","3", "4", "5", "6", "7", "8", "9", "10")
+    tree["columns"]=("1","2","3", "4", "5", "6", "7", "8")
     tree.column("1", width=70)
     tree.column("2", width=700)
     tree.column("3", width=60)
@@ -64,20 +61,16 @@ def show_specific_database(Name):
     tree.column("6", width=70)
     tree.column("7", width=70)
     tree.column("8", width=100)
-    tree.column("9", width=150)
-    tree.column("10", width=150)
     tree.heading("1", text="seller")
     tree.heading("2", text="items")
     tree.heading("3", text="quantity")
     tree.heading("4", text="bought")
     tree.heading("5", text="CAD")
-    tree.heading("6", text="MXN$")
-    tree.heading("7", text="USD")
-    tree.heading("8", text="rank")
-    tree.heading("9", text="ASIN")
-    tree.heading("10", text="UPS")
+    tree.heading("6", text="rank")
+    tree.heading("7", text="ASIN")
+    tree.heading("8", text="UPS")
     tree.pack_propagate(0)
-
+    
     cnx = mysql.connector.connect(
         host="localhost",
         user="root",
@@ -86,8 +79,8 @@ def show_specific_database(Name):
         )
     # Retrieve data from the table
     cursor = cnx.cursor()
-    seller_name = Name
-    query = f"SELECT seller, item, quantity, priceboughtCAD, pricesellingCAD, pricesellingMXN, pricesellingUSD, Ran, ASIN, UPC FROM seller WHERE seller='{seller_name}'"
+    query = "SELECT seller, item, quantity, priceboughtCAD, pricesellingCAD, Ran, ASIN, UPC FROM seller"
+
 
 
     cursor.execute(query)

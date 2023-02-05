@@ -56,7 +56,7 @@ def show_specific_database(Name):
     tree.column("1", width=70)
     tree.column("2", width=700)
     tree.column("3", width=60)
-    tree.column("4", width=70)
+    tree.column("4", width=70) 
     tree.column("5", width=70)
     tree.column("6", width=70)
     tree.column("7", width=70)

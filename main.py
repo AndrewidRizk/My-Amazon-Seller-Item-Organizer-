@@ -118,54 +118,54 @@ frame3.pack()
 
 # Entry for seller
 seller_label = tk.Label(frame3, text="Seller:")
-seller_label.pack(side='left')
+seller_label.pack(side='top')
 seller_entry = tk.Entry(frame3, width=90)
-seller_entry.pack(side='left')
+seller_entry.pack(side='top')
 
 # Entry for item
 item_label = tk.Label(frame3, text="Item:")
-item_label.pack(side='left')
+item_label.pack(side='top')
 item_entry = tk.Entry(frame3, width=90)
-item_entry.pack(side='left')
+item_entry.pack(side='top')
 
 # Entry for quantity
 quantity_label = tk.Label(frame3, text="Quantity:")
-quantity_label.pack(side='left')
+quantity_label.pack(side='top')
 quantity_entry = tk.Entry(frame3, width=90)
-quantity_entry.pack(side='left')
+quantity_entry.pack(side='top')
 
 # Entry for priceboughtCAD
 priceboughtCAD_label = tk.Label(frame3, text="Price Bought (CAD):")
-priceboughtCAD_label.pack(side='left')
+priceboughtCAD_label.pack(side='top')
 priceboughtCAD_entry = tk.Entry(frame3, width=90)
-priceboughtCAD_entry.pack(side='left')
+priceboughtCAD_entry.pack(side='top')
 
 # Entry for pricesellingCAD
 pricesellingCAD_label = tk.Label(frame3, text="Price Selling (CAD):")
-pricesellingCAD_label.pack(side='left')
+pricesellingCAD_label.pack(side='top')
 pricesellingCAD_entry = tk.Entry(frame3, width=90)
-pricesellingCAD_entry.pack(side='left')
+pricesellingCAD_entry.pack(side='top')
 
 # Entry for Ran
 Ran_label = tk.Label(frame3, text="Rank:")
-Ran_label.pack(side='left')
+Ran_label.pack(side='top')
 Ran_entry = tk.Entry(frame3, width=90)
-Ran_entry.pack(side='left')
+Ran_entry.pack(side='top')
 
 # Entry for ASIN
 ASIN_label = tk.Label(frame3, text="ASIN:")
-ASIN_label.pack(side='left')
+ASIN_label.pack(side='top')
 ASIN_entry = tk.Entry(frame3, width=90)
-ASIN_entry.pack(side='left')
+ASIN_entry.pack(side='top')
 
 # Entry for UPS
 UPS_label = tk.Label(frame3, text="UPS:")
-UPS_label.pack(side='left')
+UPS_label.pack(side='top')
 UPS_entry = tk.Entry(frame3, width=90)
-UPS_entry.pack(side='left')
+UPS_entry.pack(side='top')
 
-# Add item button 
+# Add item button
 add_item_button = tk.Button(frame3, text="Add Item")
-add_item_button.pack(side='left', anchor='center')
+add_item_button.pack(side='top', anchor='center')
 
 root.mainloop()

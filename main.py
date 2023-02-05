@@ -149,10 +149,12 @@ root = tk.Tk()
 root.geometry("700x700") # Set the width to 500 and height to 500
 root.title("Database App")
 
+
+
 frame2 = tk.Frame(root)
 frame2.pack()
 
-seller_label = tk.Label(frame2, text="Seller:")
+seller_label = tk.Label(frame2, text="Seller:", font=("Helvetica", 10), bg="#ffffff")
 seller_label.pack(side='left')
 
 entry = tk.Entry(frame2, width=90)

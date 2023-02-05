@@ -90,6 +90,62 @@ def show_specific_database(Name):
     tree.pack()
     root.mainloop()
     
+def show_add_screen():
+    root = tk.Tk()
+    frame3 = tk.Frame(root)
+    frame3.pack()
+    # Entry for seller
+    seller_label = tk.Label(frame3, text="Seller:")
+    seller_label.pack(side='top')
+    seller_entry = tk.Entry(frame3, width=90)
+    seller_entry.pack(side='top')
+
+    # Entry for item
+    item_label = tk.Label(frame3, text="Item:")
+    item_label.pack(side='top')
+    item_entry = tk.Entry(frame3, width=90)
+    item_entry.pack(side='top')
+
+    # Entry for quantity
+    quantity_label = tk.Label(frame3, text="Quantity:")
+    quantity_label.pack(side='top')
+    quantity_entry = tk.Entry(frame3, width=90)
+    quantity_entry.pack(side='top')
+
+    # Entry for priceboughtCAD
+    priceboughtCAD_label = tk.Label(frame3, text="Price Bought (CAD):")
+    priceboughtCAD_label.pack(side='top')
+    priceboughtCAD_entry = tk.Entry(frame3, width=90)
+    priceboughtCAD_entry.pack(side='top')
+
+    # Entry for pricesellingCAD
+    pricesellingCAD_label = tk.Label(frame3, text="Price Selling (CAD):")
+    pricesellingCAD_label.pack(side='top')
+    pricesellingCAD_entry = tk.Entry(frame3, width=90)
+    pricesellingCAD_entry.pack(side='top')
+
+    # Entry for Ran
+    Ran_label = tk.Label(frame3, text="Rank:")
+    Ran_label.pack(side='top')
+    Ran_entry = tk.Entry(frame3, width=90)
+    Ran_entry.pack(side='top')
+
+    # Entry for ASIN
+    ASIN_label = tk.Label(frame3, text="ASIN:")
+    ASIN_label.pack(side='top')
+    ASIN_entry = tk.Entry(frame3, width=90)
+    ASIN_entry.pack(side='top')
+
+    # Entry for UPS
+    UPS_label = tk.Label(frame3, text="UPS:")
+    UPS_label.pack(side='top')
+    UPS_entry = tk.Entry(frame3, width=90)
+    UPS_entry.pack(side='top')
+
+    # Add item button
+    add_item_button = tk.Button(frame3, text="Add Item")
+    add_item_button.pack(side='top', anchor='center')
+    
 
 root = tk.Tk()
 root.geometry("700x700") # Set the width to 500 and height to 500
@@ -113,59 +169,6 @@ show_database_button.pack(side='right', padx=20)
 
 
 
-frame3 = tk.Frame(root)
-frame3.pack()
 
-# Entry for seller
-seller_label = tk.Label(frame3, text="Seller:")
-seller_label.pack(side='top')
-seller_entry = tk.Entry(frame3, width=90)
-seller_entry.pack(side='top')
-
-# Entry for item
-item_label = tk.Label(frame3, text="Item:")
-item_label.pack(side='top')
-item_entry = tk.Entry(frame3, width=90)
-item_entry.pack(side='top')
-
-# Entry for quantity
-quantity_label = tk.Label(frame3, text="Quantity:")
-quantity_label.pack(side='top')
-quantity_entry = tk.Entry(frame3, width=90)
-quantity_entry.pack(side='top')
-
-# Entry for priceboughtCAD
-priceboughtCAD_label = tk.Label(frame3, text="Price Bought (CAD):")
-priceboughtCAD_label.pack(side='top')
-priceboughtCAD_entry = tk.Entry(frame3, width=90)
-priceboughtCAD_entry.pack(side='top')
-
-# Entry for pricesellingCAD
-pricesellingCAD_label = tk.Label(frame3, text="Price Selling (CAD):")
-pricesellingCAD_label.pack(side='top')
-pricesellingCAD_entry = tk.Entry(frame3, width=90)
-pricesellingCAD_entry.pack(side='top')
-
-# Entry for Ran
-Ran_label = tk.Label(frame3, text="Rank:")
-Ran_label.pack(side='top')
-Ran_entry = tk.Entry(frame3, width=90)
-Ran_entry.pack(side='top')
-
-# Entry for ASIN
-ASIN_label = tk.Label(frame3, text="ASIN:")
-ASIN_label.pack(side='top')
-ASIN_entry = tk.Entry(frame3, width=90)
-ASIN_entry.pack(side='top')
-
-# Entry for UPS
-UPS_label = tk.Label(frame3, text="UPS:")
-UPS_label.pack(side='top')
-UPS_entry = tk.Entry(frame3, width=90)
-UPS_entry.pack(side='top')
-
-# Add item button
-add_item_button = tk.Button(frame3, text="Add Item")
-add_item_button.pack(side='top', anchor='center')
 
 root.mainloop()

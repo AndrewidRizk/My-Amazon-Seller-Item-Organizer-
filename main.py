@@ -3,6 +3,8 @@ from tkinter import ttk
 import mysql.connector
 from PIL import Image, ImageTk
 
+def exit_root(root):
+    root.destroy()
 
 def show_database():
     root = tk.Tk()
@@ -50,6 +52,8 @@ def show_database():
     pass
 
 def show_specific_database(Name):
+    
+    entry.delete(0, 'end')
     root = tk.Tk()
     
     root.config(bg='orange')
@@ -92,7 +96,7 @@ def show_specific_database(Name):
     tree.pack()
     root.mainloop()
     
-def show_add_screen():
+def edit_screen():
     root = tk.Tk()
     root.config(bg='orange')
     
@@ -172,9 +176,73 @@ def show_add_screen():
     add_item_button.pack(side='top', anchor='center')
     
 
+def add_item(seller, item, quantity, priceboughtCAD, pricesellingCAD, rank, ASIN, UPS):
+    
+    
+
+    try:
+        conn = mysql.connector.connect(
+            host="localhost",
+            user="root",
+            password="Androwmaged3030",
+            database="amazon"
+        )
+        cursor = conn.cursor()
+
+        # Execute the INSERT statement
+        cursor.execute("INSERT INTO seller (seller, item, quantity, priceboughtCAD, pricesellingCAD, Ran, ASIN, UPC) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)", (seller, item, quantity, priceboughtCAD, pricesellingCAD, rank, ASIN, UPS))
+        conn.commit()
+
+        # Print a success message
+        root1 = tk.Tk()
+        root1.config(bg='orange')
+        root1.geometry("300x100") # Set the width to 100 and height to 100
+        
+        frame3 = tk.Frame(root1, bg="#FFA500")
+        frame3.pack()
+
+        seller_label1 = tk.Label(frame3, text="The item is added succesfully")
+        seller_label1.config(background='orange')
+        seller_label1.pack(side='top')
+        exit_button = tk.Button(frame3, text="OK!",command=lambda: exit_root(root1),  bg="orange")
+        exit_button.pack()
+        seller_entry.delete(0, 'end')
+        item_entry.delete(0, 'end')
+        quantity_entry.delete(0, 'end')
+        priceboughtCAD_entry.delete(0, 'end')
+        pricesellingCAD_entry.delete(0, 'end')
+        Ran_entry.delete(0, 'end')
+        ASIN_entry.delete(0, 'end')
+        UPS_entry.delete(0, 'end')
+
+
+    except Exception as e:
+        # Print an error message
+        print("Error inserting data: ", e)
+        root2 = tk.Tk()
+        root2.config(bg='orange')
+        root2.geometry("300x100") # Set the width to 100 and height to 100
+        
+        frame3 = tk.Frame(root2, bg="#FFA500")
+        frame3.pack()
+
+        seller_label1 = tk.Label(frame3, text="Please Make sure you insearted the right data \n make sure there is not white spaces \nor you write a charachter intead of a digit")
+        seller_label1.config(background='orange')
+        seller_label1.pack(side='top')
+        exit_button = tk.Button(frame3, text="Let me take another look!",command=lambda: exit_root(root2),  bg="orange")
+        exit_button.pack()
+
+    finally:
+        # Close the cursor and the connection
+        
+        cursor.close()
+        conn.close()
+
+    
+
 root = tk.Tk()
 root.config(bg='orange')
-root.geometry("690x550") # Set the width to 500 and height to 500
+root.geometry("690x550") # Set the width to 690 and height to 550
 root.title("Database App")
 
 
@@ -221,7 +289,7 @@ show_database_button = tk.Button(frame1, text="Show Database", command=show_data
 show_database_button.pack(side='right', padx=20)
 
 text_area = tk.Text(frame1, height=100, width=100)
-show_database_button = tk.Button(frame1, text="Edit item", command=show_add_screen,  bg="orange")
+show_database_button = tk.Button(frame1, text="Edit item", command=edit_screen,  bg="orange")
 show_database_button.pack(side='right', padx=20)
 
 frame4 = tk.Frame(root, bg="#FFA500")
@@ -294,7 +362,7 @@ UPS_entry.config(bg="purple", fg="orange")
 UPS_entry.pack(side='top')
 
 # Add item button
-add_item_button = tk.Button(frame4, text="Add Item",  bg="orange")
+add_item_button = tk.Button(frame4, text="Add Item", command=lambda: add_item(seller_entry.get(), item_entry.get(), quantity_entry.get(), priceboughtCAD_entry.get(), pricesellingCAD_entry.get(), Ran_entry.get(), ASIN_entry.get(), UPS_entry.get()),  bg="orange")
 add_item_button.pack(side='top', anchor='center')
 
 

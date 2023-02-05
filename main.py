@@ -164,7 +164,7 @@ UPS_label.pack(side='left')
 UPS_entry = tk.Entry(frame3, width=90)
 UPS_entry.pack(side='left')
 
-# Add item button
+# Add item button 
 add_item_button = tk.Button(frame3, text="Add Item")
 add_item_button.pack(side='left', anchor='center')
 

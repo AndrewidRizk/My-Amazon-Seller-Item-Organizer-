@@ -152,8 +152,12 @@ root.title("Database App")
 frame2 = tk.Frame(root)
 frame2.pack()
 
+seller_label = tk.Label(frame2, text="Seller:")
+seller_label.pack(side='left')
+
 entry = tk.Entry(frame2, width=90)
 entry.pack(side='left')
+
 
 add_item_button = tk.Button(frame2, text="Show seller Itmes", command=lambda: show_specific_database(entry.get()))
 add_item_button.pack(side='left', anchor='center')

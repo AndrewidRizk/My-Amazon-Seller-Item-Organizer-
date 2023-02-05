@@ -118,7 +118,7 @@ frame3.pack()
 
 # Entry for seller
 seller_label = tk.Label(frame3, text="Seller:")
-seller_label.pack(')
+seller_label.pack()
 seller_entry = tk.Entry(frame3, width=90)
 seller_entry.pack(side='top')
 

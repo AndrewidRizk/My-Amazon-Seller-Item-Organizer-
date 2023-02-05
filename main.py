@@ -127,6 +127,9 @@ quantity_entry.pack(side='left')
 priceboughtCAD_entry = tk.Entry(frame3, width=20)
 priceboughtCAD_entry.pack(side='left')
 
+pricesellingCAD_entry = tk.Entry(frame3, width=20)
+pricesellingCAD_entry.pack(side='left')
+
 
 root.mainloop()
 

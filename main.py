@@ -157,7 +157,7 @@ root.title("Database App")
 
 
 frame3 = tk.Frame(root)
-frame3.pack(side='left', anchor='nw')
+frame3.pack(anchor='nw')
 
 image = Image.open("amazon.jpg")
 image.thumbnail((100,100))
@@ -174,7 +174,7 @@ seller_label = tk.Label(frame3, text="ndrewid", font=("Helvetica", 20), bg="#fff
 seller_label.pack(side='left')
 
 frame2 = tk.Frame(root)
-frame2.pack()
+frame2.pack(side='left', anchor='nw')
 
 seller_label = tk.Label(frame2, text="Seller:", font=("Helvetica", 10), bg="#ffffff")
 seller_label.pack(side='left')
@@ -186,7 +186,7 @@ add_item_button = tk.Button(frame2, text="Show seller Itmes", command=lambda: sh
 add_item_button.pack(side='left', anchor='center')
 
 frame1 = tk.Frame(root)
-frame1.pack()
+frame1.pack(anchor='nw')
 
 text_area = tk.Text(frame1, height=100, width=50)
 show_database_button = tk.Button(frame1, text="Show Database", command=show_database)
@@ -195,7 +195,7 @@ show_database_button.pack(side='right', padx=20)
 frame4 = tk.Frame(root)
 frame4.pack()
 
-text_area = tk.Text(frame1, height=100, width=50)
+text_area2 = tk.Text(frame4, height=100, width=50)
 show_database_button = tk.Button(frame4, text="Add item", command=show_add_screen)
 show_database_button.pack(side='right', padx=20)
 

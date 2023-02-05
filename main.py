@@ -3,6 +3,7 @@ from tkinter import ttk
 import mysql.connector
 from PIL import Image, ImageTk
 
+
 def show_database():
     root = tk.Tk()
     root.title("Table")
@@ -90,8 +91,12 @@ def show_specific_database(Name):
     
 def show_add_screen():
     root = tk.Tk()
+    
+
+    
     frame3 = tk.Frame(root)
     frame3.pack()
+      
     # Entry for seller
     seller_label = tk.Label(frame3, text="Seller:")
     seller_label.pack(side='top')
@@ -151,12 +156,28 @@ root.title("Database App")
 
 
 
+frame3 = tk.Frame(root)
+frame3.pack(side='left', anchor='nw')
+
+image = Image.open("amazon.jpg")
+image.thumbnail((100,100))
+image.save("amazon.jpg")
+photo = ImageTk.PhotoImage(image)
+# Adding an image to the tkinter window
+image = Image.open("your_thumbnail.jpg")
+
+photo = ImageTk.PhotoImage(image)
+label = tk.Label(frame3, image=photo)
+label.pack(side='left', padx=0)
+
+seller_label = tk.Label(frame3, text="ndrewid", font=("Helvetica", 20), bg="#ffffff", fg='orange')
+seller_label.pack(side='left')
+
 frame2 = tk.Frame(root)
 frame2.pack()
 
 seller_label = tk.Label(frame2, text="Seller:", font=("Helvetica", 10), bg="#ffffff")
 seller_label.pack(side='left')
-
 entry = tk.Entry(frame2, width=90)
 entry.pack(side='left')
 

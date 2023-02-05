@@ -79,11 +79,9 @@ def show_specific_database(Name):
         )
     # Retrieve data from the table
     cursor = cnx.cursor()
-    query = "SELECT seller, item, quantity, priceboughtCAD, pricesellingCAD, Ran, ASIN, UPC FROM seller"
-
-
-
-    cursor.execute(query)
+    query = "SELECT seller, item, quantity, priceboughtCAD, pricesellingCAD, Ran, ASIN, UPC FROM seller WHERE seller = %s"
+    seller_name = Name
+    cursor.execute(query, (seller_name,))
     # Insert data into the treeview
     for row in cursor:
         tree.insert("", "end", values=row)

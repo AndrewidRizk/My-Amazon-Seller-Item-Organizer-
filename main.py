@@ -133,6 +133,10 @@ pricesellingCAD_entry.pack(side='left')
 Ran_entry = tk.Entry(frame3, width=20)
 Ran_entry.pack(side='left')
 
+ASIN_entry = tk.Entry(frame3, width=20)
+ASIN_entry.pack(side='left')
+
+
 root.mainloop()
 
 

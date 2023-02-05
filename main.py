@@ -91,62 +91,75 @@ def show_specific_database(Name):
     
 def show_add_screen():
     root = tk.Tk()
+    root.config(bg='orange')
     
-
-    
-    frame3 = tk.Frame(root)
+    frame3 = tk.Frame(root, bg="#FFA500")
     frame3.pack()
-      
-    # Entry for seller
     seller_label = tk.Label(frame3, text="Seller:")
+    seller_label.config(background='orange')
     seller_label.pack(side='top')
-    seller_entry = tk.Entry(frame3, width=90)
+    seller_entry = tk.Entry(frame3, width=120)
+    seller_entry.config(bg="gray")
     seller_entry.pack(side='top')
 
     # Entry for item
     item_label = tk.Label(frame3, text="Item:")
+    item_label.config(background='orange')
     item_label.pack(side='top')
-    item_entry = tk.Entry(frame3, width=90)
+    item_entry = tk.Entry(frame3, width=120)
+    item_entry.config(bg="gray")
     item_entry.pack(side='top')
 
     # Entry for quantity
     quantity_label = tk.Label(frame3, text="Quantity:")
+    quantity_label.config(background='orange')
     quantity_label.pack(side='top')
-    quantity_entry = tk.Entry(frame3, width=90)
+    quantity_entry = tk.Entry(frame3, width=120)
+    quantity_entry.config(bg="gray")
     quantity_entry.pack(side='top')
 
     # Entry for priceboughtCAD
     priceboughtCAD_label = tk.Label(frame3, text="Price Bought (CAD):")
+    priceboughtCAD_label.config(background='orange')
     priceboughtCAD_label.pack(side='top')
-    priceboughtCAD_entry = tk.Entry(frame3, width=90)
+    priceboughtCAD_entry = tk.Entry(frame3, width=120)
+    priceboughtCAD_entry.config(bg="gray")
     priceboughtCAD_entry.pack(side='top')
 
     # Entry for pricesellingCAD
     pricesellingCAD_label = tk.Label(frame3, text="Price Selling (CAD):")
+    pricesellingCAD_label.config(background='orange')
     pricesellingCAD_label.pack(side='top')
-    pricesellingCAD_entry = tk.Entry(frame3, width=90)
+    pricesellingCAD_entry = tk.Entry(frame3, width=120)
+    pricesellingCAD_entry.config(bg="gray")
     pricesellingCAD_entry.pack(side='top')
 
     # Entry for Ran
     Ran_label = tk.Label(frame3, text="Rank:")
+    Ran_label.config(background='orange')
     Ran_label.pack(side='top')
-    Ran_entry = tk.Entry(frame3, width=90)
+    Ran_entry = tk.Entry(frame3, width=120)
+    Ran_entry.config(bg="gray")
     Ran_entry.pack(side='top')
 
     # Entry for ASIN
     ASIN_label = tk.Label(frame3, text="ASIN:")
+    ASIN_label.config(background='orange')
     ASIN_label.pack(side='top')
-    ASIN_entry = tk.Entry(frame3, width=90)
+    ASIN_entry = tk.Entry(frame3, width=120)
+    ASIN_entry.config(bg="gray")
     ASIN_entry.pack(side='top')
 
     # Entry for UPS
     UPS_label = tk.Label(frame3, text="UPS:")
+    UPS_label.config(background='orange')
     UPS_label.pack(side='top')
-    UPS_entry = tk.Entry(frame3, width=90)
+    UPS_entry = tk.Entry(frame3, width=120)
+    UPS_entry.config(bg="gray")
     UPS_entry.pack(side='top')
 
     # Add item button
-    add_item_button = tk.Button(frame3, text="Add Item")
+    add_item_button = tk.Button(frame3, text="Add Item",  bg="orange")
     add_item_button.pack(side='top', anchor='center')
     
 
@@ -184,6 +197,7 @@ seller_label = tk.Label(frame2, text="Seller:", font=("Helvetica", 10), bg="#fff
 seller_label.config(background='orange')
 seller_label.pack(side='left')
 entry = tk.Entry(frame2, width=90)
+entry.config(bg="gray")
 entry.pack(side='left')
 
 
@@ -211,6 +225,7 @@ seller_label = tk.Label(frame4, text="Seller:")
 seller_label.config(background='orange')
 seller_label.pack(side='top')
 seller_entry = tk.Entry(frame4, width=120)
+seller_entry.config(bg="gray")
 seller_entry.pack(side='top')
 
  # Entry for item
@@ -218,6 +233,7 @@ item_label = tk.Label(frame4, text="Item:")
 item_label.config(background='orange')
 item_label.pack(side='top')
 item_entry = tk.Entry(frame4, width=120)
+item_entry.config(bg="gray")
 item_entry.pack(side='top')
 
 # Entry for quantity
@@ -225,6 +241,7 @@ quantity_label = tk.Label(frame4, text="Quantity:")
 quantity_label.config(background='orange')
 quantity_label.pack(side='top')
 quantity_entry = tk.Entry(frame4, width=120)
+quantity_entry.config(bg="gray")
 quantity_entry.pack(side='top')
 
 # Entry for priceboughtCAD
@@ -232,6 +249,7 @@ priceboughtCAD_label = tk.Label(frame4, text="Price Bought (CAD):")
 priceboughtCAD_label.config(background='orange')
 priceboughtCAD_label.pack(side='top')
 priceboughtCAD_entry = tk.Entry(frame4, width=120)
+priceboughtCAD_entry.config(bg="gray")
 priceboughtCAD_entry.pack(side='top')
 
 # Entry for pricesellingCAD
@@ -239,6 +257,7 @@ pricesellingCAD_label = tk.Label(frame4, text="Price Selling (CAD):")
 pricesellingCAD_label.config(background='orange')
 pricesellingCAD_label.pack(side='top')
 pricesellingCAD_entry = tk.Entry(frame4, width=120)
+pricesellingCAD_entry.config(bg="gray")
 pricesellingCAD_entry.pack(side='top')
 
 # Entry for Ran
@@ -246,6 +265,7 @@ Ran_label = tk.Label(frame4, text="Rank:")
 Ran_label.config(background='orange')
 Ran_label.pack(side='top')
 Ran_entry = tk.Entry(frame4, width=120)
+Ran_entry.config(bg="gray")
 Ran_entry.pack(side='top')
 
 # Entry for ASIN
@@ -253,6 +273,7 @@ ASIN_label = tk.Label(frame4, text="ASIN:")
 ASIN_label.config(background='orange')
 ASIN_label.pack(side='top')
 ASIN_entry = tk.Entry(frame4, width=120)
+ASIN_entry.config(bg="gray")
 ASIN_entry.pack(side='top')
 
 # Entry for UPS
@@ -260,6 +281,7 @@ UPS_label = tk.Label(frame4, text="UPS:")
 UPS_label.config(background='orange')
 UPS_label.pack(side='top')
 UPS_entry = tk.Entry(frame4, width=120)
+UPS_entry.config(bg="gray")
 UPS_entry.pack(side='top')
 
 # Add item button

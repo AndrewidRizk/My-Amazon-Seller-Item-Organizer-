@@ -152,7 +152,7 @@ def show_add_screen():
 
 root = tk.Tk()
 root.config(bg='orange')
-root.geometry("700x550") # Set the width to 500 and height to 500
+root.geometry("690x550") # Set the width to 500 and height to 500
 root.title("Database App")
 
 
@@ -174,7 +174,7 @@ label.pack(side='left', padx=0)
 seller_label = tk.Label(frame3, text="ndrewid", font=("Helvetica", 40), bg="#ffffff", fg='orange')
 seller_label.pack(side='left')
 
-seller_label = tk.Label(frame3, text=" - if it does not exist, we are working one it.     ", font=("Helvetica", 15), bg="#ffffff", fg='red')
+seller_label = tk.Label(frame3, text=" - if it does not exist, we are working one it.     ", font=("Helvetica", 15), bg="#ffffff", fg='orange')
 seller_label.pack(side='left')
 
 frame2 = tk.Frame(root, bg="#FFA500")
@@ -187,18 +187,18 @@ entry = tk.Entry(frame2, width=90)
 entry.pack(side='left')
 
 
-add_item_button = tk.Button(frame2, text="Show seller Itmes", command=lambda: show_specific_database(entry.get()))
+add_item_button = tk.Button(frame2, text="Show seller Itmes", command=lambda: show_specific_database(entry.get()),  bg="orange")
 add_item_button.pack(side='left', anchor='center')
 
 frame1 = tk.Frame(root, bg="#FFA500")
 frame1.pack()
 
 text_area = tk.Text(frame1, height=100, width=100)
-show_database_button = tk.Button(frame1, text="Show Database", command=show_database)
+show_database_button = tk.Button(frame1, text="Show Database", command=show_database,  bg="orange")
 show_database_button.pack(side='right', padx=20)
 
 text_area = tk.Text(frame1, height=100, width=100)
-show_database_button = tk.Button(frame1, text="Edit item", command=show_add_screen)
+show_database_button = tk.Button(frame1, text="Edit item", command=show_add_screen,  bg="orange")
 show_database_button.pack(side='right', padx=20)
 
 frame4 = tk.Frame(root, bg="#FFA500")
@@ -263,7 +263,7 @@ UPS_entry = tk.Entry(frame4, width=120)
 UPS_entry.pack(side='top')
 
 # Add item button
-add_item_button = tk.Button(frame4, text="Add Item")
+add_item_button = tk.Button(frame4, text="Add Item",  bg="orange")
 add_item_button.pack(side='top', anchor='center')
 
 

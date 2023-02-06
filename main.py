@@ -115,6 +115,15 @@ def edit_screen():
     seller_entry.config(bg="purple", fg="orange")
     seller_entry.pack(side='top')
 
+    # Entry for UPS
+    UPS_label = tk.Label(frame3, text="UPS:")
+    UPS_label.config(background='orange')
+    UPS_label.pack(side='top')
+    UPS_entry = tk.Entry(frame3, width=120)
+    UPS_entry.config(bg="purple", fg="orange")
+    UPS_entry.pack(side='top')
+    
+
     # Entry for item
     item_label = tk.Label(frame3, text="Item:")
     item_label.config(background='orange')
@@ -163,13 +172,7 @@ def edit_screen():
     ASIN_entry.config(bg="purple", fg="orange")
     ASIN_entry.pack(side='top')
 
-    # Entry for UPS
-    UPS_label = tk.Label(frame3, text="UPS:")
-    UPS_label.config(background='orange')
-    UPS_label.pack(side='top')
-    UPS_entry = tk.Entry(frame3, width=120)
-    UPS_entry.config(bg="purple", fg="orange")
-    UPS_entry.pack(side='top')
+    
 
     # Add item button
     add_item_button = tk.Button(frame3, text="Add Item",  bg="orange")

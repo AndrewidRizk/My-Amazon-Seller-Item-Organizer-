@@ -19,8 +19,8 @@ def show_database():
     tree.column("4", width=70)
     tree.column("5", width=70)
     tree.column("6", width=70)
-    tree.column("7", width=70)
-    tree.column("8", width=100)
+    tree.column("7", width=110)
+    tree.column("8", width=130)
     tree.heading("1", text="seller")
     tree.heading("2", text="items")
     tree.heading("3", text="quantity")
@@ -28,7 +28,7 @@ def show_database():
     tree.heading("5", text="CAD")
     tree.heading("6", text="rank")
     tree.heading("7", text="ASIN")
-    tree.heading("8", text="UPS")
+    tree.heading("8", text="UPC")
     tree.pack_propagate(0)
     
     cnx = mysql.connector.connect(
@@ -67,8 +67,8 @@ def show_specific_database(Name):
     tree.column("4", width=70) 
     tree.column("5", width=70)
     tree.column("6", width=70)
-    tree.column("7", width=70)
-    tree.column("8", width=100)
+    tree.column("7", width=110)
+    tree.column("8", width=130)
     tree.heading("1", text="seller")
     tree.heading("2", text="items")
     tree.heading("3", text="quantity")
@@ -76,7 +76,7 @@ def show_specific_database(Name):
     tree.heading("5", text="CAD")
     tree.heading("6", text="rank")
     tree.heading("7", text="ASIN")
-    tree.heading("8", text="UPS")
+    tree.heading("8", text="UPC")
     tree.pack_propagate(0)
     
     cnx = mysql.connector.connect(
@@ -97,14 +97,14 @@ def show_specific_database(Name):
     root.mainloop()
     
 def edit_screen():
-    root = tk.Tk()
-    root.config(bg='orange')
+    root5 = tk.Tk()
+    root5.config(bg='orange')
     
     
-    frame3 = tk.Frame(root, bg="#FFA500")
+    frame3 = tk.Frame(root5, bg="#FFA500")
     frame3.pack()
 
-    seller_label1 = tk.Label(frame3, text="Write the name of the Seller and the name UPS of the item and change what you would like to change")
+    seller_label1 = tk.Label(frame3, text="Write the name of the Seller and the name UPC of the item and change what you would like to change")
     seller_label1.config(background='orange')
     seller_label1.pack(side='top')
 
@@ -115,22 +115,14 @@ def edit_screen():
     seller_entry.config(bg="purple", fg="orange")
     seller_entry.pack(side='top')
 
-    # Entry for UPS
-    UPS_label = tk.Label(frame3, text="UPS:")
-    UPS_label.config(background='orange')
-    UPS_label.pack(side='top')
-    UPS_entry = tk.Entry(frame3, width=120)
-    UPS_entry.config(bg="purple", fg="orange")
-    UPS_entry.pack(side='top')
+    # Entry for UPC
+    UPC_label = tk.Label(frame3, text="UPC:")
+    UPC_label.config(background='orange')
+    UPC_label.pack(side='top')
+    UPC_entry = tk.Entry(frame3, width=120)
+    UPC_entry.config(bg="purple", fg="orange")
+    UPC_entry.pack(side='top')
     
-
-    # Entry for item
-    item_label = tk.Label(frame3, text="Item:")
-    item_label.config(background='orange')
-    item_label.pack(side='top')
-    item_entry = tk.Entry(frame3, width=120)
-    item_entry.config(bg="purple", fg="orange")
-    item_entry.pack(side='top')
 
     # Entry for quantity
     quantity_label = tk.Label(frame3, text="Quantity:")
@@ -164,22 +156,51 @@ def edit_screen():
     Ran_entry.config(bg="purple", fg="orange")
     Ran_entry.pack(side='top')
 
-    # Entry for ASIN
-    ASIN_label = tk.Label(frame3, text="ASIN:")
-    ASIN_label.config(background='orange')
-    ASIN_label.pack(side='top')
-    ASIN_entry = tk.Entry(frame3, width=120)
-    ASIN_entry.config(bg="purple", fg="orange")
-    ASIN_entry.pack(side='top')
+   
 
     
 
     # Add item button
-    add_item_button = tk.Button(frame3, text="Add Item",  bg="orange")
+    add_item_button = tk.Button(frame3, text="Add Item", command=lambda: edit_item(seller_entry.get(), quantity_entry.get(), priceboughtCAD_entry.get(), pricesellingCAD_entry.get(), Ran_entry.get(), UPC_entry.get(), root5),  bg="orange")
     add_item_button.pack(side='top', anchor='center')
     
+def edit_item(seller, quantity, priceboughtCAD, pricesellingCAD, rank, UPC, root5):
+    exit_root(root5)
+    cnx = mysql.connector.connect(
+        host="localhost",
+        user="root",
+        password="Androwmaged3030",
+        database="amazon"
+    )
+    cursor = cnx.cursor()
+    set_clauses = []
+    data = []
 
-def add_item(seller, item, quantity, priceboughtCAD, pricesellingCAD, rank, ASIN, UPS):
+    if quantity:
+        set_clauses.append("quantity = %s")
+        data.append(quantity)
+    if priceboughtCAD:
+        set_clauses.append("priceboughtCAD = %s")
+        data.append(priceboughtCAD)
+    if pricesellingCAD:
+        set_clauses.append("pricesellingCAD = %s")
+        data.append(pricesellingCAD)
+    if rank:
+        set_clauses.append("Ran = %s")
+        data.append(rank)
+    
+
+    set_clause_str = ", ".join(set_clauses)
+    query = f"UPDATE seller SET {set_clause_str} WHERE seller = %s AND UPC = %s"
+    data.extend([seller, UPC])
+
+    cursor.execute(query, data)
+    cnx.commit()
+    cursor.close()
+    cnx.close()
+
+
+def add_item(seller, item, quantity, priceboughtCAD, pricesellingCAD, rank, ASIN, UPC):
     
     
 
@@ -193,7 +214,7 @@ def add_item(seller, item, quantity, priceboughtCAD, pricesellingCAD, rank, ASIN
         cursor = conn.cursor()
 
         # Execute the INSERT statement
-        cursor.execute("INSERT INTO seller (seller, item, quantity, priceboughtCAD, pricesellingCAD, Ran, ASIN, UPC) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)", (seller, item, quantity, priceboughtCAD, pricesellingCAD, rank, ASIN, UPS))
+        cursor.execute("INSERT INTO seller (seller, item, quantity, priceboughtCAD, pricesellingCAD, Ran, ASIN, UPC) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)", (seller, item, quantity, priceboughtCAD, pricesellingCAD, rank, ASIN, UPC))
         conn.commit()
 
         # Print a success message
@@ -216,7 +237,7 @@ def add_item(seller, item, quantity, priceboughtCAD, pricesellingCAD, rank, ASIN
         pricesellingCAD_entry.delete(0, 'end')
         Ran_entry.delete(0, 'end')
         ASIN_entry.delete(0, 'end')
-        UPS_entry.delete(0, 'end')
+        UPC_entry.delete(0, 'end')
 
 
     except Exception as e:
@@ -267,7 +288,7 @@ label.pack(side='left', padx=0)
 seller_label = tk.Label(frame3, text="ndrewid", font=("Helvetica", 40), bg="#ffffff", fg='orange')
 seller_label.pack(side='left')
 
-seller_label = tk.Label(frame3, text=" - if it does not exist, we are working one it.     ", font=("Helvetica", 15), bg="#ffffff", fg='orange')
+seller_label = tk.Label(frame3, text=" - If it does not exist. We are working one it.      ", font=("Times", 16), bg="#ffffff", fg='orange')
 seller_label.pack(side='left')
 
 frame2 = tk.Frame(root, bg="#FFA500")
@@ -356,16 +377,16 @@ ASIN_entry = tk.Entry(frame4, width=120)
 ASIN_entry.config(bg="purple", fg="orange")
 ASIN_entry.pack(side='top')
 
-# Entry for UPS
-UPS_label = tk.Label(frame4, text="UPS:")
-UPS_label.config(background='orange')
-UPS_label.pack(side='top')
-UPS_entry = tk.Entry(frame4, width=120)
-UPS_entry.config(bg="purple", fg="orange")
-UPS_entry.pack(side='top')
+# Entry for UPC
+UPC_label = tk.Label(frame4, text="UPC:")
+UPC_label.config(background='orange')
+UPC_label.pack(side='top')
+UPC_entry = tk.Entry(frame4, width=120)
+UPC_entry.config(bg="purple", fg="orange")
+UPC_entry.pack(side='top')
 
 # Add item button
-add_item_button = tk.Button(frame4, text="Add Item", command=lambda: add_item(seller_entry.get(), item_entry.get(), quantity_entry.get(), priceboughtCAD_entry.get(), pricesellingCAD_entry.get(), Ran_entry.get(), ASIN_entry.get(), UPS_entry.get()),  bg="orange")
+add_item_button = tk.Button(frame4, text="Add Item", command=lambda: add_item(seller_entry.get(), item_entry.get(), quantity_entry.get(), priceboughtCAD_entry.get(), pricesellingCAD_entry.get(), Ran_entry.get(), ASIN_entry.get(), UPC_entry.get()),  bg="orange")
 add_item_button.pack(side='top', anchor='center')
 
 

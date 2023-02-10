@@ -288,7 +288,7 @@ label.pack(side='left', padx=0)
 seller_label = tk.Label(frame3, text="ndrewid", font=("Helvetica", 40), bg="#ffffff", fg='orange')
 seller_label.pack(side='left')
 
-seller_label = tk.Label(frame3, text=" - If it does not exist. We are working one it.      ", font=("Times", 16), bg="#ffffff", fg='orange')
+seller_label = tk.Label(frame3, text=" - If it does not exist. We are working on it.      ", font=("Times", 16), bg="#ffffff", fg='orange')
 seller_label.pack(side='left')
 
 frame2 = tk.Frame(root, bg="#FFA500")

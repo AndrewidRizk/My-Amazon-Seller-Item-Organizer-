@@ -34,7 +34,7 @@ def show_database():
     cnx = mysql.connector.connect(
         host="localhost",
         user="root",
-        password="Androwmaged3030",
+        password="***",
         database="amazon"
         )
     # Retrieve data from the table
@@ -82,7 +82,7 @@ def show_specific_database(Name):
     cnx = mysql.connector.connect(
         host="localhost",
         user="root",
-        password="Androwmaged3030",
+        password="***",
         database="amazon"
         )
     # Retrieve data from the table
@@ -169,7 +169,7 @@ def edit_item(seller, quantity, priceboughtCAD, pricesellingCAD, rank, UPC, root
     cnx = mysql.connector.connect(
         host="localhost",
         user="root",
-        password="Androwmaged3030",
+        password="***",
         database="amazon"
     )
     cursor = cnx.cursor()
@@ -208,7 +208,7 @@ def add_item(seller, item, quantity, priceboughtCAD, pricesellingCAD, rank, ASIN
         conn = mysql.connector.connect(
             host="localhost",
             user="root",
-            password="Androwmaged3030",
+            password="***",
             database="amazon"
         )
         cursor = conn.cursor()
